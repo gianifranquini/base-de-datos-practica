@@ -1,0 +1,42 @@
+use ciber_rosarino;
+# Mostrar todos los registros de la tabla productos.
+select * from ciber_rosarino.productos;
+
+# Contar cuántos clientes hay registrados en total.
+SELECT COUNT(*) FROM ciber_rosarino.clientes;
+
+# Mostrar el nombre de cada producto y su precio.
+select nombre, precio from ciber_rosarino.productos;
+
+#Calcular el precio promedio de todos los productos del ciber.
+SELECT AVG(productos.precio) as promedio_productos from ciber_rosarino.productos;
+
+# Mostrar la cantidad total de productos en stock (sumar stock).
+SELECT SUM(stock) as suma_stock from ciber_rosarino.productos;
+
+#Contar cuántas computadoras están registradas.
+SELECT COUNT(*) as cantidad_computadoras FROM ciber_rosarino.computadoras; 
+
+# Obtener el costo total acumulado por todos los usos registrados.
+SELECT SUM(costo) as suma_costos from ciber_rosarino.usos;
+
+# Mostrar la cantidad total de ventas realizadas.
+SELECT SUM(cantidad) as cantidad_ventas FROM ciber_rosarino.ventas;
+
+#Calcular el total de dinero recaudado en todas las ventas.
+SELECT SUM(total) as dinero_recaudado FROM ciber_rosarino.ventas;
+
+#Mostrar el total recaudado en cada venta (total) junto con el ID de la venta.
+SELECT id_cliente, total as ventas FROM ciber_rosarino.ventas;
+
+#Mostrar el promedio del costo de uso por sesión.
+SELECT AVG(costo) as promedio_uso FROM ciber_rosarino.usos;
+
+# Contar cuántos usos fueron registrados por fecha (usar GROUP BY fecha).
+
+SELECT fecha , COUNT(*)  as cantidad_fecha FROM ciber_rosarino.usos GROUP BY fecha; 
+
+#Mostrar cuántos productos distintos hay.
+SELECT  COUNT(DISTINCT(nombre)) as productos_distintos FROM ciber_rosarino.productos;
+
+# Mostrar la cantidad de veces que se vendió cada producto (agrupar por id_producto).
